@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.5.0)
+
+file(GLOB HEADERS "*.hpp")
+file(GLOB SOURCES "*.cpp")
+add_subdirectory(data-structures)
+add_subdirectory(reconstruction)
+add_subdirectory(filters)
+add_library(logic STATIC ${HEADERS} ${SOURCES})
+target_link_libraries(logic ds reconstruction common filters)
+set_target_properties(logic PROPERTIES LINKER_LANGUAGE CXX)
